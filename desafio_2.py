@@ -20,7 +20,7 @@ def depositar(saldo, valor, extrato, /):
       extrato += f"Depósito:\tR$ {valor:.2f}\n"
       print("\n***Depósito realizado com sucesso! ***")
    else:
-        print("\n*** Erro no sistema, valor inválido! ***")
+      print("\n### Erro no sistema, valor inválido! ###")
 
    return saldo, extrato
 
@@ -30,13 +30,13 @@ def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
    excedeu_saques = numero_saques >= limite_saques
 
    if excedeu_saldo:
-      print("Operação falhou! Você não tem saldo suficiente")
+      print("\n### Operação falhou! Você não tem saldo suficiente ###")
 
    elif excedeu_limite:
-      print(f"Operação falhou! O valor do saque excedeu o limite de R$: {limite:.2f}")
+      print(f"\n### Operação falhou! O valor do saque excedeu o limite de R$: {limite:.2f} ###")
 
    elif excedeu_saques:
-      print("Operação falhou! Você excedeu o limite de saques")
+      print("\n### Operação falhou! Você excedeu o limite de saques ###")
 
    if valor > 0:
       saldo -= valor
@@ -45,7 +45,7 @@ def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
       print("\n*** Saque realizado com sucesso! ***")
 
    else:
-       print("\n*** Erro no sistema, valor inválido! ***")
+      print("\n### Erro no sistema, valor inválido! ###")
 
    return saldo, extrato
 
@@ -60,7 +60,7 @@ def criar_usuario(usuarios):
    usuario = filtrar_usuario(cpf, usuarios)
 
    if usuario:
-      print("\n *** Já existe usuário com esse CPF! ***")
+      print("\n ### Já existe usuário com esse CPF! ###")
       return
    
    nome = input ("Informe o nome completo:")
@@ -83,7 +83,7 @@ def criar_conta (agencia, numero_conta, usuarios):
       print("\n*** Conta criada com sucesso! ***")
       return {"agencia": agencia, "numero_conta": numero_conta, "usuario": usuario}
    
-   print("\n*** Usuário não encontrado, criação de conta encerrada! ***")
+   print("\n### Usuário não encontrado, criação de conta encerrada! ###")
 
 def listar_contas (contas):
    for conta in contas:
@@ -146,6 +146,6 @@ def main ():
          break
 
       else:
-         print("Operação inválida, por favor selecione novamente a operação desejada.")
+         print("\n### Operação inválida, por favor selecione novamente a operação desejada. ###")
 
 main()
